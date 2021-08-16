@@ -4,7 +4,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.bigbio.pgatk</groupId>
+  <groupId>io.github.bigbio</groupId>
   <artifactId>pepgenome</artifactId>
   <version>1.1</version>
   <packaging>jar</packaging>
