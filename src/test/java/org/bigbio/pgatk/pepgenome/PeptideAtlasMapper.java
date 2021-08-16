@@ -81,6 +81,7 @@ public class PeptideAtlasMapper {
     }
 
     @Test
+    @Ignore
     public void peptideAtlasTest() throws IOException {
         log.info("InMemoryTest");
         List<String> argList = new ArrayList<>();

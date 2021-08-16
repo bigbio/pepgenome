@@ -2,10 +2,7 @@ package org.bigbio.pgatk.pepgenome;
 
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.FixMethodOrder;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runners.MethodSorters;
 
 import java.io.File;
@@ -59,6 +56,7 @@ public class PepGenomeToolTest {
     }
 
     @Test
+    @Ignore
     public void mainInMemory() throws IOException {
         log.info("InMemoryTest");
         List<String> argList = new ArrayList<>();
@@ -103,6 +101,7 @@ public class PepGenomeToolTest {
     }
 
     @Test
+    @Ignore
     public void mainInDB() throws IOException {
         log.info("InDBTest");
         List<String> argList = new ArrayList<>();
