@@ -3,6 +3,7 @@ package org.bigbio.pgatk.pepgenome;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.*;
@@ -34,11 +35,14 @@ public class PepGeonomeMzTabTest  {
     @Before
     public void setUp() throws Exception {
 
-        fileFasta = TestUtils.unGzip(new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("mztab/gencode.v25.pc_translations.fa.gz")).toURI())).getAbsolutePath();
+        fileFasta = TestUtils.unGzip(new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader()
+          .getResource("mztab/gencode.v25.pc_translations.fa.gz")).toURI())).getAbsolutePath();
 
-        fileIn = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("mztab/sample.mztab")).toURI()).getAbsolutePath();
+        fileIn = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader()
+          .getResource("mztab/sample.mztab")).toURI()).getAbsolutePath();
 
-        File inputGZfile = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("small/gencode.v25.annotation.gtf.gz")).toURI());
+        File inputGZfile = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader()
+          .getResource("small/gencode.v25.annotation.gtf.gz")).toURI());
         fileGTF = TestUtils.unGzip(inputGZfile).getAbsolutePath();
 
     }
@@ -67,12 +71,12 @@ public class PepGeonomeMzTabTest  {
         List<List<String>> bedLines = TestUtils.getBedLines(outputBed);
         Assert.assertEquals(4577, bedLines.size());
 
-//        deleteOnExits();
         log.info(" ");
 
     }
 
     @Test
+    @Ignore
     public void mzTabTestMissMatches() throws IOException {
         log.info("InMemoryTest");
         List<String> argList = new ArrayList<>();

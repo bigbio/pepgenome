@@ -40,16 +40,20 @@ public class PepGenomeToolTest {
     @Before
     public void setUp() throws Exception {
 
-        fileIn = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("small/Testfile_small.txt")).toURI())
+        fileIn = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader()
+          .getResource("small/Testfile_small.txt")).toURI())
           .getAbsolutePath();
-        fileFasta = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("small/minimal_gencode.v25.pc_translations.fa"))
+        fileFasta = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader()
+            .getResource("small/minimal_gencode.v25.pc_translations.fa"))
           .toURI()).getAbsolutePath();
-        File inputGZfile = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("small/gencode.v25.annotation.gtf.gz"))
+        File inputGZfile = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader()
+            .getResource("small/gencode.v25.annotation.gtf.gz"))
           .toURI());
 
         fileGTF = TestUtils.unGzip(inputGZfile).getAbsolutePath();
 
-        fileCPogo = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("small/cpogo/Testfile_small.bed")).toURI())
+        fileCPogo = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader()
+          .getResource("small/cpogo/Testfile_small.bed")).toURI())
           .getAbsolutePath();
 
     }

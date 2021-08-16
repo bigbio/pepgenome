@@ -3,6 +3,7 @@ package org.bigbio.pgatk.pepgenome;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.*;
@@ -27,27 +28,20 @@ public class PeptideAtlasMapper {
 
     String fileIn = null;
     String fileFasta = null;
-//    String fileGenomeFasta = null;
     String fileGTF = null;
     private String fileUnmappedIn;
     private String fileInZebrafish;
     private String fileFastaZebrafish;
-//    private String fileGenomeFastaZebrafish;
     private String fileGTFZebrafish;
     private String fileInYeast;
     private String fileFastaYeast;
-//    private String fileGenomeFastaYeast;
     private String fileGTFYeast;
     private String fileInBonobo;
     private String fileFastaBonobo;
-//    private String fileGenomeFastaBonobo;
     private String fileGTFBonobo;
     private String fileInAlpaca;
     private String fileFastaAlpaca;
-//    private String fileGenomeFastaAlpaca;
     private String fileGTFAlpaca;
-    
-
 
     @Before
     public void setUp() throws Exception {
@@ -64,19 +58,19 @@ public class PeptideAtlasMapper {
 //        fileGenomeFastaZebrafish = TestUtils.unGzip(new File(Objects.requireNonNull(new File("D:/Data/Genomes/DNA/Danio_rerio.GRCz11.dna.primary_assembly.fa.gz")).toURI())).getAbsolutePath();
         inputGZfile = TestUtils.unGzip(new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("taxonomies/Danio_rerio.GRCz11.94.gtf.gz")).toURI()));
         fileGTFZebrafish = inputGZfile.getAbsolutePath();
-        
+
         fileInYeast = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("taxonomies/yeast.tsv")).toURI()).getAbsolutePath();
         fileFastaYeast = TestUtils.unGzip(new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("taxonomies/Saccharomyces_cerevisiae.R64-1-1.pep.all.fa.gz")).toURI())).getAbsolutePath();
 //        fileGenomeFastaYeast = TestUtils.unGzip(new File(Objects.requireNonNull(new File("D:/Data/Genomes/DNA/Saccharomyces_cerevisiae.R64-1-1.dna.toplevel.fa.gz")).toURI())).getAbsolutePath();
         inputGZfile = TestUtils.unGzip(new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("taxonomies/Saccharomyces_cerevisiae.R64-1-1.94.gtf.gz")).toURI()));
         fileGTFYeast = inputGZfile.getAbsolutePath();
-        
+
         fileInBonobo = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("taxonomies/bonobo.pogo")).toURI()).getAbsolutePath();
         fileFastaBonobo = TestUtils.unGzip(new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("taxonomies/Pan_paniscus.panpan1.1.pep.all.fa.gz")).toURI())).getAbsolutePath();
 //        fileGenomeFastaBonobo = TestUtils.unGzip(new File(Objects.requireNonNull(new File("D:/Data/Genomes/DNA/Pan_paniscus.panpan1.1.dna.toplevel.fa.gz")).toURI())).getAbsolutePath();
         inputGZfile = TestUtils.unGzip(new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("taxonomies/Pan_paniscus.panpan1.1.94.gtf.gz")).toURI()));
         fileGTFBonobo = inputGZfile.getAbsolutePath();
-        
+
         fileInAlpaca = new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("taxonomies/alpaca.pogo")).toURI()).getAbsolutePath();
         fileFastaAlpaca = TestUtils.unGzip(new File(Objects.requireNonNull(PepGenomeToolTest.class.getClassLoader().getResource("taxonomies/Vicugna_pacos.vicPac1.pep.all.fa.gz")).toURI())).getAbsolutePath();
 //        fileGenomeFastaAlpaca = TestUtils.unGzip(new File(Objects.requireNonNull(new File("D:/Data/Genomes/DNA/Vicugna_pacos.vicPac1.dna.toplevel.fa.gz")).toURI())).getAbsolutePath();
@@ -118,6 +112,7 @@ public class PeptideAtlasMapper {
     }
 
     @Test
+    @Ignore
     public void peptideUnMappedTest() throws IOException {
         log.info("InMemoryTest");
         List<String> argList = new ArrayList<>();
@@ -141,12 +136,12 @@ public class PeptideAtlasMapper {
         List<List<String>> bedLines = TestUtils.getBedLines(outputBed);
         Assert.assertEquals(0, bedLines.size());
 
-//        deleteOnExits();
         log.info(" ");
 
     }
 
     @Test
+    @Ignore
     public void zebrafishTest() throws IOException {
         log.info("InMemoryTest");
         List<String> argList = new ArrayList<>();
@@ -159,8 +154,6 @@ public class PeptideAtlasMapper {
         argList.add(fileGTFZebrafish);
         argList.add("-inf");
         argList.add("peptideatlas");
-//        argList.add("-genome");
-//        argList.add(fileGenomeFastaZebrafish);
 
 
         String[] args = new String[argList.size()];
@@ -171,13 +164,12 @@ public class PeptideAtlasMapper {
 
         List<List<String>> bedLines = TestUtils.getBedLines(outputBed);
         Assert.assertEquals(7, bedLines.size());
-
-//        deleteOnExits();
         log.info(" ");
 
     }
-    
+
     @Test
+    @Ignore
     public void yeastTest() throws IOException {
         log.info("InMemoryTest");
         List<String> argList = new ArrayList<>();
@@ -190,8 +182,6 @@ public class PeptideAtlasMapper {
         argList.add(fileGTFYeast);
         argList.add("-inf");
         argList.add("peptideatlas");
-//        argList.add("-genome");
-//        argList.add(fileGenomeFastaYeast);
 
 
         String[] args = new String[argList.size()];
@@ -203,12 +193,12 @@ public class PeptideAtlasMapper {
         List<List<String>> bedLines = TestUtils.getBedLines(outputBed);
         Assert.assertEquals(3, bedLines.size());
 
-//        deleteOnExits();
         log.info(" ");
 
     }
-    
+
     @Test
+    @Ignore
     public void bonoboTest() throws IOException {
         log.info("InMemoryTest");
         List<String> argList = new ArrayList<>();
@@ -238,8 +228,9 @@ public class PeptideAtlasMapper {
         log.info(" ");
 
     }
-    
+
     @Test
+    @Ignore
     public void alpacaTest() throws IOException {
         log.info("InMemoryTest");
         List<String> argList = new ArrayList<>();
@@ -252,8 +243,6 @@ public class PeptideAtlasMapper {
         argList.add(fileGTFAlpaca);
         argList.add("-inf");
         argList.add("tab");
-//        argList.add("-genome");
-//        argList.add(fileGenomeFastaAlpaca);
 
 
         String[] args = new String[argList.size()];
@@ -262,12 +251,12 @@ public class PeptideAtlasMapper {
 
         File outputBed = new File(fileInAlpaca.replace(".pogo", ".bed"));
         List<List<String>> bedLines = TestUtils.getBedLines(outputBed);
-        
+
         if(argList.contains("-genome")) {
         	outputBed = new File(fileInAlpaca.replace(".pogo", "_patch_hapl_scaff.bed"));
         	bedLines.addAll(TestUtils.getBedLines(outputBed));
         }
-        
+
         Assert.assertEquals(2, bedLines.size());
 
 //        deleteOnExits();
