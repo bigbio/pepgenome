@@ -25,7 +25,7 @@ In addition the tool support mzTab File format input.
 ### How to run
 
 ```bash
-$ java -jar /Users/yperez/IdeaProjects/github-repo/BDP/pgatk/pepgenome/target/pepgenome-{version}-bin.jar
+$ java -jar pepgenome-{version}-bin.jar
 ```
 
 ### Output formats
