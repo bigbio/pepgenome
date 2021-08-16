@@ -192,48 +192,6 @@
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.1.2</version>
-          <configuration>
-            <excludes>
-              <exclude>src/test</exclude>
-              <exclude>src/test/*.class</exclude>
-            </excludes>
-            <archive>
-              <index>true</index>
-              <manifest>
-                <!-- Adds the classpath to the created manifest -->
-                <addClasspath>true</addClasspath>
-                <classpathPrefix>lib/</classpathPrefix>
-                <!-- Configures the main class of the application -->
-                <mainClass>de.mpc.pia.modeller.PIAModeller</mainClass>
-              </manifest>
-            </archive>
-          </configuration>
-        </plugin>
-
-        <plugin>
-          <artifactId>maven-assembly-plugin</artifactId>
-          <version>3.1.1</version>
-          <configuration>
-            <appendAssemblyId>false</appendAssemblyId>
-            <descriptors>
-              <descriptor>${project.basedir}/assembly.xml</descriptor>
-            </descriptors>
-          </configuration>
-          <executions>
-            <execution>
-              <id>assembly</id>
-              <phase>package</phase>
-              <goals>
-                <goal>single</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>3.0.0</version>
           <executions>
