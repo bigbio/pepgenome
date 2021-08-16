@@ -8,11 +8,11 @@
   <artifactId>pepgenome</artifactId>
   <version>1.1</version>
   <packaging>jar</packaging>
-  <description>Protein inference toolbox that contains algorithms to merge results from search engines in mass spectrometry and proteomics. It provides functionalities to compute FDR at different levels including PSM, peptide and Protein levels.</description>
+  <description>PepGenome uses transcript translations and reference gene annotations to identify the genomic loci of peptides and post-translational modifications. Multiple occurrences of peptides in the input data resulting in the same genomic loci will be collapsed as a single occurrence in the output.</description>
 
   <licenses>
     <license>
-      <name>BSD license</name>
+      <name>Apache 2.0</name>
       <url>https://raw.githubusercontent.com/bigbio/pepgenome/master/LICENSE</url>
       <distribution>repo</distribution>
     </license>
@@ -190,37 +190,6 @@
           </configuration>
         </plugin>
 
-<!--        <plugin>-->
-<!--          <groupId>org.apache.maven.plugins</groupId>-->
-<!--          <artifactId>maven-jar-plugin</artifactId>-->
-<!--          <version>2.6</version>-->
-<!--          <configuration>-->
-<!--            <excludes>-->
-<!--              <exclude>src/test</exclude>-->
-<!--              <exclude>src/test/*.class</exclude>-->
-<!--            </excludes>-->
-<!--            <archive>-->
-<!--              <manifest>-->
-<!--                &lt;!&ndash; Adds the classpath to the created manifest &ndash;&gt;-->
-<!--                <addClasspath>true</addClasspath>-->
-<!--                <classpathPrefix>lib/</classpathPrefix>-->
-<!--                &lt;!&ndash; Configures the main class of the application &ndash;&gt;-->
-<!--                <mainClass>org.bigbio.pgatk.pepgenome.PepGenomeTool</mainClass>-->
-<!--              </manifest>-->
-<!--            </archive>-->
-<!--          </configuration>-->
-<!--          <executions>-->
-<!--            <execution>-->
-<!--              <goals>-->
-<!--                <goal>jar</goal>-->
-<!--              </goals>-->
-<!--            </execution>-->
-<!--          </executions>-->
-<!--        </plugin>-->
-
-
-
-
         <plugin>
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
@@ -376,21 +345,6 @@
     </repository>
 
     <repository>
-      <!-- This repo is required for cpdetector (required by jmzidml->pride-xml-handler->xxindex->cpdetector) and related libraries -->
-      <!-- This is supplied here because of an HTTP 301 Permanent Redirect on the old URL that xxindex supplies, which breaks fresh builds. -->
-      <id>sammoa-group</id>
-      <url>https://nexus.nuiton.org/nexus/content/groups/sammoa-group/</url>
-    </repository>
-
-    <!-- UGent Genesis repository -->
-    <repository>
-      <id>genesis-maven2-repository</id>
-      <name>Genesis maven2 repository</name>
-      <url>http://genesis.ugent.be/maven2</url>
-      <layout>default</layout>
-    </repository>
-
-    <repository>
       <id>sonatype-release</id>
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
     </repository>
@@ -400,6 +354,7 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </repository>
   </repositories>
+
   <distributionManagement>
    <snapshotRepository>
       <id>sonatype-snapshopt</id>
