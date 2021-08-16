@@ -8,6 +8,20 @@
   <artifactId>pepgenome</artifactId>
   <version>1.1</version>
   <packaging>jar</packaging>
+  <description>Protein inference toolbox that contains algorithms to merge results from search engines in mass spectrometry and proteomics. It provides functionalities to compute FDR at different levels including PSM, peptide and Protein levels.</description>
+
+  <licenses>
+    <license>
+      <name>BSD license</name>
+      <url>https://raw.githubusercontent.com/bigbio/pepgenome/master/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <organization>
+    <url>http://bigbio.xyz</url>
+    <name>Big Bioinformatics Open Stack</name>
+  </organization>
 
   <developers>
     <developer>
@@ -235,6 +249,114 @@
             <argLine>-Xmx3G</argLine>
           </configuration>
         </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.1.2</version>
+          <configuration>
+            <excludes>
+              <exclude>src/test</exclude>
+              <exclude>src/test/*.class</exclude>
+            </excludes>
+            <archive>
+              <index>true</index>
+              <manifest>
+                <!-- Adds the classpath to the created manifest -->
+                <addClasspath>true</addClasspath>
+                <classpathPrefix>lib/</classpathPrefix>
+                <!-- Configures the main class of the application -->
+                <mainClass>de.mpc.pia.modeller.PIAModeller</mainClass>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>3.1.1</version>
+          <configuration>
+            <appendAssemblyId>false</appendAssemblyId>
+            <descriptors>
+              <descriptor>${project.basedir}/assembly.xml</descriptor>
+            </descriptors>
+          </configuration>
+          <executions>
+            <execution>
+              <id>assembly</id>
+              <phase>package</phase>
+              <goals>
+                <goal>single</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>3.0.0</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>3.1.1</version>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <additionalOptions>
+              <additionalOption>-Xdoclint:none</additionalOption>
+            </additionalOptions>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>1.6</version>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+              <configuration>
+                <!-- Prevent `gpg` from using pinentry programs -->
+                <gpgArguments>
+                  <arg>--pinentry-mode</arg>
+                  <arg>loopback</arg>
+                </gpgArguments>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <!-- Nexus Staging Plugin -->
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.8</version>
+          <extensions>true</extensions>
+          <configuration>
+            <serverId>ossrh</serverId>
+            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+            <autoReleaseAfterClose>false</autoReleaseAfterClose>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -278,12 +400,19 @@
       <url>https://oss.sonatype.org/content/repositories/snapshots</url>
     </repository>
   </repositories>
+  <distributionManagement>
+   <snapshotRepository>
+      <id>sonatype-snapshopt</id>
+      <name>Central Repository OSSRH</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <!--scm git config-->
   <scm>
-    <connection>scm:git:https://github.com/bigbio/pia.git</connection>
-    <developerConnection>scm:git:https://github.com/bigbio/pia.git</developerConnection>
-    <url>https://github.com/bigbio/pia.git</url>
+    <connection>scm:git:https://github.com/bigbio/pepgenome.git</connection>
+    <developerConnection>scm:git:https://github.com/bigbio/pepgenome.git</developerConnection>
+    <url>https://github.com/bigbio/pepgenome.git</url>
     <tag>HEAD</tag>
   </scm>
 
