@@ -8,6 +8,7 @@
   <artifactId>pepgenome</artifactId>
   <version>1.1</version>
   <packaging>jar</packaging>
+  <url>https://github.com/bigbio/pepgenome/</url>
   <description>PepGenome uses transcript translations and reference gene annotations to identify the genomic loci of peptides and post-translational modifications. Multiple occurrences of peptides in the input data resulting in the same genomic loci will be collapsed as a single occurrence in the output.</description>
 
   <licenses>
