@@ -1,5 +1,5 @@
 <assembly>
-  <id>genome-deployment</id>
+  <id>pepgenome-deployment</id>
 
   <formats>
     <format>zip</format>
@@ -10,7 +10,7 @@
   <dependencySets>
     <dependencySet>
       <useProjectArtifact>false</useProjectArtifact>
-      <outputDirectory>lib</outputDirectory>
+<!--      <outputDirectory>lib</outputDirectory>-->
       <unpack>false</unpack>
       <scope>runtime</scope>
       <outputFileNameMapping>${artifact.artifactId}-${artifact.baseVersion}.${artifact.extension}</outputFileNameMapping>
