@@ -65,6 +65,12 @@
       <groupId>io.github.bigbio.pgatk</groupId>
       <artifactId>pgatk-io</artifactId>
       <version>1.0.1-SNAPSHOT</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.sun.java</groupId>
+          <artifactId>tools</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <!-- pia dependencies -->
