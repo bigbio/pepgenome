@@ -1,7 +1,7 @@
 PepGenome
 =====================
 
-[![Java CI with Maven of PepGenome](https://github.com/bigbio/pgatk/actions/workflows/maven.yml/badge.svg)](https://github.com/bigbio/pgatk/actions/workflows/maven.yml) [![codecov](https://codecov.io/gh/bigbio/pgatk/branch/master/graph/badge.svg)](https://codecov.io/gh/bigbio/pgatk)  [![Documentation Status](https://readthedocs.org/projects/red-docs/badge/?version=latest)](https://pgatk.readthedocs.io/en/latest/?badge=latest)
+[![Release](https://github.com/bigbio/pepgenome/actions/workflows/maven-publish.yml/badge.svg?branch=master)](https://github.com/bigbio/pepgenome/actions/workflows/maven-publish.yml) [![codecov](https://codecov.io/gh/bigbio/pgatk/branch/master/graph/badge.svg)](https://codecov.io/gh/bigbio/pgatk)  [![Documentation Status](https://readthedocs.org/projects/red-docs/badge/?version=latest)](https://pgatk.readthedocs.io/en/latest/?badge=latest)
 
 # PepGenome tool
 
